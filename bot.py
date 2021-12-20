@@ -112,8 +112,8 @@ async def rec_pelm(call: CallbackQuery):
         await call.message.answer(text="К какому рецепту вы хотите оставить коментарий?", reply_markup=kakou1)
 
         @dp.callback_query_handler(text="oct1")
-        """Отзыв к первому рецепту"""
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к первому рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -183,8 +183,8 @@ async def rec_pelm(call: CallbackQuery):
                 await message.answer("Спасибо за отзыв")
 
         @dp.callback_query_handler(text="oct5")
-        """Отзыв к пятому рецепту"""
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к пятому рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
