@@ -18,11 +18,12 @@ dp = Dispatcher(bot)
 
 """Создание клавиш"""
 """НАЧАЛО ВСЕХ КЛАВИШШШ"""
-
+"""Простая клавиатура с существующими командами"""
 keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 button1 = KeyboardButton("/start")
 button2 = KeyboardButton('/рецепты')
 keyboard.add(button1).add(button2)
+
 
 rev = InlineKeyboardMarkup(row_width=1)
 item1 = KeyboardButton(text="Хочу оставить коментарий", callback_data="octav")
@@ -54,20 +55,22 @@ rec.add(pel).add(mak)
 
 """КОНЕЦ ВСЕХ КЛАВИШШШ"""
 
-"""Ответ на /start"""
+
 @dp.message_handler(Command("start"))
 async def hello(message: types.Message):
-    await message.answer(text="Привет, я Бот-повар\nЯ создан для того, чтобы помочь тебе найти простые рецепты, кроме доширака", reply_markup=keyboard)
+    """Ответ на /start"""
+    await message.answer(text="Привет, я Бот-повар\nЯ создан для того, чтобы помочь тебе найти простые рецепты, кроме доширака",
+                         reply_markup=keyboard)
 
-"""Ответ на /рецепты"""
 @dp.message_handler(Command("рецепты"))
 async def show_recept(message: types.Message):
+    """Ответ на /рецепты"""
     await message.answer(text="У нас представлены некоторые рецепты. \n"
                          "Выберете, что у вас есть в холодильнике", reply_markup=rec)
 
-"""Обработка инлайновой кнопки у которой call_back=pelmen"""
 @dp.callback_query_handler(text="pelmen")
 async def rec_pelm(call: CallbackQuery):
+    """Обработка инлайновой кнопки у которой call_back=pelmen"""
     await call.answer(cache_time=60)
     calll = call.data
     logging.info(f"call = {calll}")
@@ -89,17 +92,19 @@ async def rec_pelm(call: CallbackQuery):
                                        "какому-нибудь рецепту?", reply_markup=rev)
     else:
         await call.message.answer("У нас пока нет рецптов с пельменями. Дождитесь обновления. \n""Спасибо за понимание")
-    """Обработка ответа, если человек не хочет ни смотреть отзывы, ни писать свой"""
+
     @dp.callback_query_handler(text="net")
     async def rev_net(call: CallbackQuery):
+        """Обработка ответа, если человек не хочет ни смотреть отзывы, ни писать свой"""
         await call.answer(cache_time=60)
         calll = call.data
         logging.info(f"call = {calll}")
 
         await call.message.answer("Буду рад тебя еще встретить🥺😄")
-    """если человек хочет написать отзыв"""
+
     @dp.callback_query_handler(text="octav")
     async def rev_ost(call: CallbackQuery):
+        """если человек хочет написать отзыв"""
         await call.answer(cache_time=60)
         calll = call.data
         logging.info(f"call = {calll}")
@@ -190,9 +195,10 @@ async def rec_pelm(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-    """Недоделанный кусок для вывода отзывов для того или иного рецепты"""
+
     @dp.callback_query_handler(text="posm")
     async def rev_pos(call: CallbackQuery):
+        """Недоделанный кусок для вывода отзывов для того или иного рецепты"""
         await call.answer(cache_time=60)
         calll = call.data
         logging.info(f"call = {calll}")
@@ -209,9 +215,10 @@ async def rec_pelm(call: CallbackQuery):
             await call.message.answer("Извините, не допилил(( Ждите обновлений!")
             call.message.answer(text="К какому рецепту вы хотите посмотреть коментарии?", reply_markup=kakou2)"""
 
-"""Обработка инлайновой кнопки у которой call_back=makaron"""
+
 @dp.callback_query_handler(text="makaron")
 async def rec_mak(call: CallbackQuery):
+    """Обработка инлайновой кнопки у которой call_back=makaron"""
     await call.answer(cache_time=60)
     calll = call.data
     logging.info(f"call = {calll}")
@@ -333,9 +340,9 @@ async def rec_mak(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-    """Недоделанный кусок для вывода отзывов для того или иного рецепты"""
     @dp.callback_query_handler(text="posm")
     async def rev_pos(call: CallbackQuery):
+        """Недоделанный кусок для вывода отзывов для того или иного рецепты"""
         await call.answer(cache_time=60)
         calll = call.data
         logging.info(f"call = {calll}")
