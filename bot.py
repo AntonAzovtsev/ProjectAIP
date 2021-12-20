@@ -110,8 +110,9 @@ async def rec_pelm(call: CallbackQuery):
         logging.info(f"call = {calll}")
 
         await call.message.answer(text="К какому рецепту вы хотите оставить коментарий?", reply_markup=kakou1)
-        """Отзыв к первому рецепту"""
+
         @dp.callback_query_handler(text="oct1")
+        """Отзыв к первому рецепту"""
         async def rev_ost(call: CallbackQuery):
             await call.answer(cache_time=60)
             callback = call.data
@@ -127,9 +128,10 @@ async def rec_pelm(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв ко второму рецепту"""
+
         @dp.callback_query_handler(text="oct2")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв ко второму рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -144,9 +146,10 @@ async def rec_pelm(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв к третьему рецепту"""
+
         @dp.callback_query_handler(text="oct3")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к третьему рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -161,9 +164,10 @@ async def rec_pelm(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв к четвертому рецепту"""
+
         @dp.callback_query_handler(text="oct4")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к четвертому рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -178,8 +182,8 @@ async def rec_pelm(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв к пятому рецепту"""
         @dp.callback_query_handler(text="oct5")
+        """Отзыв к пятому рецепту"""
         async def rev_ost(call: CallbackQuery):
             await call.answer(cache_time=60)
             callback = call.data
@@ -246,7 +250,6 @@ async def rec_mak(call: CallbackQuery):
 
         await call.message.answer("Буду рад тебя еще встретить🥺😄")
 
-    """Отзыв к первому рецепту"""
     @dp.callback_query_handler(text="octav")
     async def rev_ost(call: CallbackQuery):
         await call.answer(cache_time=60)
@@ -257,6 +260,7 @@ async def rec_mak(call: CallbackQuery):
 
         @dp.callback_query_handler(text="oct1")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к первому рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -272,9 +276,10 @@ async def rec_mak(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв ко второму рецепту"""
+
         @dp.callback_query_handler(text="oct2")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв ко второму рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -289,9 +294,10 @@ async def rec_mak(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв к третьем рецепту"""
+
         @dp.callback_query_handler(text="oct3")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к третьем рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -306,9 +312,9 @@ async def rec_mak(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв к четвертому рецепту"""
         @dp.callback_query_handler(text="oct4")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к четвертому рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")
@@ -323,9 +329,9 @@ async def rec_mak(call: CallbackQuery):
                 BotDB.add_record(y, x)
                 await message.answer("Спасибо за отзыв")
 
-        """Отзыв к пятому рецепту"""
         @dp.callback_query_handler(text="oct5")
         async def rev_ost(call: CallbackQuery):
+            """Отзыв к пятому рецепту"""
             await call.answer(cache_time=60)
             callback = call.data
             logging.info(f"call = {callback}")

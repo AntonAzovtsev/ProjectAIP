@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import AsyncMock
+
 import bot
 
 class MyTestCase(unittest.IsolatedAsyncioTestCase):
